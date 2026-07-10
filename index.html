@@ -1221,7 +1221,7 @@
 
       <div class="home-header">
         <!-- Logo mark -->
-        <div class="logo-mark">
+        <div class="logo-mark" onclick="goto('home')" style="cursor:pointer">
           <!-- SVG icon: two city dots joined by a curved route with compass needle -->
           <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="color:var(--text-2)">
             <!-- Outer ring (compass/globe suggestion) -->
@@ -1362,14 +1362,7 @@
       </div>
 
       <!-- CTA -->
-      <div class="cta-card" onclick="goto('search')">
-        <div class="cta-icon">✦</div>
-        <div>
-          <div class="cta-title">Plan week 31</div>
-          <div class="cta-sub">28 Jul – 3 Aug · 4 weeks away</div>
-        </div>
-        <div class="cta-arrow">›</div>
-      </div>
+      <button class="generate-btn" onclick="goto('search')" style="margin-top:16px;">Plan a week ✦</button>
 
     </div>
   </div>
@@ -1473,13 +1466,13 @@
     </div>
   </div>
 
-  <!-- ════════════════════════════════ BRIEFS ════════════════════════════════ -->
-  <div class="screen" id="screen-briefs">
+  <!-- ════════════════════════════════ IDEAS ════════════════════════════════ -->
+  <div class="screen" id="screen-ideas">
     <div class="scroll">
       <div class="briefs-header">
         <div class="eyebrow" style="margin-bottom:6px">Week 31 · 28 Jul – 3 Aug</div>
-        <div class="page-title">Three ideas<br><em>just for you</em></div>
-        <div class="briefs-sub">Curated from 400+ destinations. We kept the three best.</div>
+        <div class="page-title">Your <em>ideas</em></div>
+        <div class="briefs-sub">Pinned from your searches. Tap one to explore further.</div>
       </div>
 
       <!-- Brief 1: Lisbon -->
@@ -1630,7 +1623,7 @@
   <div class="screen" id="screen-detail">
     <div class="scroll">
       <div class="detail-hero hero-lisbon" style="height:300px;position:relative;flex-shrink:0;">
-        <div class="back-btn" onclick="goto('briefs')">←</div>
+        <div class="back-btn" onclick="goto('ideas')">←</div>
         <div class="save-btn" onclick="showSaved()">Save as Plan ✦</div>
         <div class="detail-hero-content">
           <div class="eyebrow" style="color:rgba(255,255,255,0.5);margin-bottom:6px">Portugal</div>
@@ -1830,23 +1823,72 @@
     </div>
   </div>
 
+  <!-- ════════════════════════════════ PROFILE ════════════════════════════════ -->
+  <div class="screen" id="screen-profile">
+    <div class="scroll">
+      <div style="padding:8px 20px 20px">
+        <div class="page-title">Profile</div>
+      </div>
+      <div class="header-cut"></div>
+
+      <!-- Partner pair -->
+      <div style="padding:24px 20px;display:flex;align-items:center;gap:16px">
+        <div class="partner-av rahul" style="width:52px;height:52px;font-size:18px;flex-shrink:0">R</div>
+        <svg width="44" height="40" viewBox="0 0 26 24" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0"><path d="M13 22C13 22 1.5 14 1.5 7C1.5 3.96 3.96 1.5 7 1.5C9.4 1.5 11.5 2.9 13 5C14.5 2.9 16.6 1.5 19 1.5C22.04 1.5 24.5 3.96 24.5 7C24.5 14 13 22 13 22Z" fill="#c0567a"/></svg>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:17px">Rahul & Jo</div>
+          <div style="font-size:12px;color:var(--text-3);margin-top:2px">Planning since 2025 · 3 trips together</div>
+        </div>
+      </div>
+      <div class="section-cut"></div>
+
+      <!-- Settings rows -->
+      <div style="padding:0 20px">
+        <div style="padding:16px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;cursor:pointer">
+          <div>
+            <div style="font-size:14px;font-weight:500">Calendars</div>
+            <div style="font-size:12px;color:var(--text-3);margin-top:2px">Google Calendar · iCloud</div>
+          </div>
+          <div style="color:var(--text-3)">›</div>
+        </div>
+        <div style="padding:16px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;cursor:pointer">
+          <div>
+            <div style="font-size:14px;font-weight:500">Default departure</div>
+            <div style="font-size:12px;color:var(--text-3);margin-top:2px">Separate · ARN + GOT</div>
+          </div>
+          <div style="color:var(--text-3)">›</div>
+        </div>
+        <div style="padding:16px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;cursor:pointer">
+          <div>
+            <div style="font-size:14px;font-weight:500">Hotel budget</div>
+            <div style="font-size:12px;color:var(--text-3);margin-top:2px">€180 / night</div>
+          </div>
+          <div style="color:var(--text-3)">›</div>
+        </div>
+        <div style="padding:16px 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer" onclick="toggleTheme()">
+          <div>
+            <div style="font-size:14px;font-weight:500">Appearance</div>
+            <div style="font-size:12px;color:var(--text-3);margin-top:2px" id="theme-label">Light mode</div>
+          </div>
+          <div style="color:var(--text-3)">›</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ════════════════════════════════ BOTTOM NAV ════════════════════════════════ -->
   <div class="bottom-nav">
-    <div class="nav-item active" id="nav-home" onclick="goto('home')">
-      <div class="nav-icon">⌂</div>
-      <div class="nav-label">Home</div>
-    </div>
-    <div class="nav-item" id="nav-search" onclick="goto('search')">
-      <div class="nav-icon">✦</div>
-      <div class="nav-label">Search</div>
-    </div>
-    <div class="nav-item" id="nav-briefs" onclick="goto('briefs')">
+    <div class="nav-item active" id="nav-ideas" onclick="goto('ideas')">
       <div class="nav-icon">◈</div>
-      <div class="nav-label">Briefs</div>
+      <div class="nav-label">Ideas</div>
     </div>
     <div class="nav-item" id="nav-plans" onclick="goto('plans')">
       <div class="nav-icon">♡</div>
       <div class="nav-label">Plans</div>
+    </div>
+    <div class="nav-item" id="nav-profile" onclick="goto('profile')">
+      <div class="nav-icon">○</div>
+      <div class="nav-label">Profile</div>
     </div>
   </div>
 
@@ -2100,9 +2142,10 @@
     const next = isDark ? 'light' : 'dark';
     html.setAttribute('data-theme', next);
     localStorage.setItem('oddweeks-theme', next);
-    // swap icons
     document.querySelector('#theme-toggle .icon-moon').style.display = isDark ? '' : 'none';
     document.querySelector('#theme-toggle .icon-sun').style.display  = isDark ? 'none' : '';
+    const label = document.getElementById('theme-label');
+    if (label) label.textContent = next === 'dark' ? 'Dark mode' : 'Light mode';
   }
 
   // Apply saved theme on load
@@ -2119,7 +2162,7 @@
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
     document.getElementById('screen-' + screen).classList.add('active');
-    const navMap = { home:'home', search:'search', briefs:'briefs', plans:'plans', detail:'briefs' };
+    const navMap = { home:'ideas', search:'ideas', ideas:'ideas', plans:'plans', detail:'ideas', profile:'profile' };
     const navId = navMap[screen];
     if (navId) document.getElementById('nav-' + navId)?.classList.add('active');
   }
@@ -2152,7 +2195,7 @@
         i++;
         setTimeout(nextStep, 700 + Math.random() * 400);
       } else {
-        setTimeout(() => { loading.classList.remove('active'); steps.forEach(s => { document.getElementById(s).classList.remove('done','active-step'); }); i=0; goto('briefs'); }, 500);
+        setTimeout(() => { loading.classList.remove('active'); steps.forEach(s => { document.getElementById(s).classList.remove('done','active-step'); }); i=0; goto('ideas'); }, 500);
       }
     }
     nextStep();
